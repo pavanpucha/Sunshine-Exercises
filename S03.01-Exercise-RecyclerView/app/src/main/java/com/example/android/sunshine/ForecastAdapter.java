@@ -16,7 +16,7 @@ import org.w3c.dom.Text;
 public class ForecastAdapter extends RecyclerView.Adapter<ForecastAdapter.ForecastAdapterViewHolder> {
     private String[] mWeatherData;
 
-    public void ForecastAdapter() {
+    public ForecastAdapter() {
 
     }
 
@@ -67,7 +67,7 @@ public class ForecastAdapter extends RecyclerView.Adapter<ForecastAdapter.Foreca
         else
             return mWeatherData.length;
     }
-    private void setWeatherData(String[] weatherData){
+    public void setWeatherData(String[] weatherData){
         weatherData = mWeatherData;
         notifyDataSetChanged();
     }
