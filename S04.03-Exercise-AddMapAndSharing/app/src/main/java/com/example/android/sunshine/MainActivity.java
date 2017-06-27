@@ -220,9 +220,24 @@ public class MainActivity extends AppCompatActivity implements ForecastAdapterOn
             loadWeatherData();
             return true;
         }
-
-        // TODO (2) Launch the map when the map menu item is clicked
+        if(id == R.id.action_map){
+            openMap();
+        }
+        // COMPLETED(2) Launch the map when the map menu item is clicked
 
         return super.onOptionsItemSelected(item);
+    }
+    private void openMap(){
+        String address = "3073 Southern Pine Trail";
+        Uri location = Uri.parse("geo:0,0?q="+address);
+        Intent intent = new Intent(Intent.ACTION_VIEW);
+        intent.setData(location);
+        if(intent.resolveActivity(getPackageManager())!=null){
+            startActivity(intent);
+        }
+        else
+        {
+            Log.d(TAG, "Coundn't call the" +location.toString() +" no apps installed");
+        }
     }
 }
